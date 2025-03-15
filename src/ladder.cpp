@@ -14,7 +14,7 @@ void error(string word1, string word2, string msg){
 
 
 bool edit_distance_within(const string& str1, const string& str2, int d) {
-    int len1 = str1.length()
+    int len1 = str1.length();
     int len2 = str2.length();
     if (abs(len1 - len2) > d) return false;
     
