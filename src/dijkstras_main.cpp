@@ -3,7 +3,7 @@
 int main() {
     Graph G;
     //cout << "1\n";
-    file_to_graph("src/medium.txt", G); // Load graph from file
+    file_to_graph("src/small.txt", G); // Load graph from file
     //cout << "2\n";
 
     int source = 0;
