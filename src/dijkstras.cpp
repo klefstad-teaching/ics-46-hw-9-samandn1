@@ -42,6 +42,10 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
             }
         }
     }
+    // cout << "Previous Array:\n";
+    // for (int i = 0; i < numVertices; i++) {
+    //     cout << "Previous[" << i << "] = " << previous[i] << endl;
+    // }
     return distances;
 }
 

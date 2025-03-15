@@ -3,7 +3,7 @@
 int main() {
     Graph G;
     //cout << "1\n";
-    file_to_graph("src/small.txt", G); // Load graph from file
+    file_to_graph("src/medium.txt", G); // Load graph from file
     //cout << "2\n";
 
     int source = 0;
@@ -21,11 +21,17 @@ int main() {
     int destination = 3;
     vector<int> path = extract_shortest_path(distances, previous, destination);
 
+    if (path.empty()) {
+    cout << "Error: Path is empty. Check if previous[] was initialized correctly.\n";
+}
+
     cout << "Shortest path from " << source << " to " << destination << ": ";
     for (int node : path) {
         cout << node << " ";
     }
     cout << endl;
+    
+    print_path(path, path.size());
 
     return 0;
 }
