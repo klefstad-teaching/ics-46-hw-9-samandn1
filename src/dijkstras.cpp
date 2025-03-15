@@ -67,7 +67,7 @@ vector<int> extract_shortest_path(const vector<int>& distances, const vector<int
         cout << "No path to " << destination << endl;
         return path;
     }
-    while (node != UNDEFINED && distances[node] != 0) {
+    while (node != UNDEFINED) {
         path.push_back(node);
         node = previous[node];
     }
