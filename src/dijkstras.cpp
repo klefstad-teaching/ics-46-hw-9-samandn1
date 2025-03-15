@@ -48,21 +48,21 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
 
 
 
-// vector<int> extract_shortest_path(const vector<int>& /*distances*/, const vector<int>& previous, int destination){
-//     stack<int> pathStack;
-//     vector<int> path;
+vector<int> extract_shortest_path(const vector<int>& /*distances*/, const vector<int>& previous, int destination){
+    stack<int> pathStack;
+    vector<int> path;
 
-//     for (int at = destination; at != UNDEFINED; at = previous[at]) {
-//         pathStack.push(at);
-//     }
+    for (int at = destination; at != UNDEFINED; at = previous[at]) {
+        pathStack.push(at);
+    }
 
-//     while (!pathStack.empty()) {
-//         path.push_back(pathStack.top());
-//         pathStack.pop();
-//     }
+    while (!pathStack.empty()) {
+        path.push_back(pathStack.top());
+        pathStack.pop();
+    }
 
-//     return path;
-// }
+    return path;
+}
 
 void print_path(const vector<int>& v, int total) {
     if (v.empty()) {
@@ -75,16 +75,16 @@ void print_path(const vector<int>& v, int total) {
     cout << endl;
 }
 
-vector<int> extract_shortest_path(const vector<int>& /*distances*/, const vector<int>& previous, int destination) {
-    vector<int> path;
-    int at = destination;
+// vector<int> extract_shortest_path(const vector<int>& /*distances*/, const vector<int>& previous, int destination) {
+//     vector<int> path;
+//     int at = destination;
 
-    while (at != -1) {
-        path.push_back(at);
-        at = previous[at];
-    }
+//     while (at != -1) {
+//         path.push_back(at);
+//         at = previous[at];
+//     }
 
-    reverse(path.begin(), path.end());
-    return path;
-}
+//     reverse(path.begin(), path.end());
+//     return path;
+// }
 
