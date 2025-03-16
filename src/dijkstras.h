@@ -26,6 +26,16 @@ struct Edge {
     }
 };
 
+struct Node {
+    int vertex, weight;
+    Node(int v, int w) : vertex(v), weight(w) {}
+
+    bool operator>(const Node& other) const {
+        return weight > other.weight;
+    }
+};
+
+
 struct Graph : public vector<vector<Edge>> {
     int numVertices=0;
 };

@@ -3,23 +3,19 @@
 
 
 vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& previous) {
-    //cout << "d1\n";
     int numVertices = G.numVertices;
     vector<int> distances(numVertices, INF);
     previous.assign(numVertices, -1);
     vector<bool> visited(numVertices, false);
     distances[source] = 0;
     previous[source] = UNDEFINED;
-    //priority_queue<pair<int, int>> minHeap;
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> minHeap; //vertex, weight
-    minHeap.push({source, 0});
-    //cout << "d2\n";
+    priority_queue<Node, vector<Node>, greater<Node>> minHeap; //vertex, weight
+    minHeap.push(Node{source, 0});
 
     while (!minHeap.empty()) {
-        int u = minHeap.top().first;
+        Node tp = minHeap.top();
         minHeap.pop();
-
-        
+        int u = tp.vertex;
 
         if (visited[u]) continue;
         visited[u] = true;
@@ -27,11 +23,10 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
             int v = edge.dst;
             int weight = edge.weight;
 
-
             if (!visited[v] && distances[u] + weight < distances[v]) {
                 distances[v] = distances[u] + weight;
                 previous[v] = u;
-                minHeap.push({v, distances[v]});
+                minHeap.push(Node{v, distances[v]});
             }
         }
     }
@@ -40,10 +35,6 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
 }
 
 void print_path(const vector<int>& v, int total) {
-    // if (v.empty()) {
-    //     cout << "Empty Path." << endl;
-    //     return; 
-    // }
     for (size_t i = 0; i < v.size(); ++i) {
         cout << v[i] << " ";
     }
